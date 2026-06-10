@@ -40,6 +40,20 @@ textarea {
   font: inherit;
 }
 
+button,
+a,
+.hotspot,
+.calendar-heart,
+.scroll-top {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+button:focus,
+a:focus {
+  outline: none;
+}
+
 .paper-noise {
   position: fixed;
   inset: 0;
@@ -159,8 +173,12 @@ textarea {
 }
 
 .hotspot--map::after {
-  background: radial-gradient(circle, rgba(255, 244, 223, .18), transparent 68%);
-  box-shadow: inset 0 0 0 2px rgba(255, 244, 223, .2), 0 0 24px rgba(255, 244, 223, .18);
+  display: none;
+}
+.hotspot--map:focus,
+.hotspot--map:active,
+.hotspot--map:focus-visible {
+  outline: none;
 }
 
 .hotspot--registration {
@@ -179,9 +197,9 @@ textarea {
 
 .calendar-heart {
   position: absolute;
-  left: 42.2%;
-  top: 63.9%;
-  width: 7.3%;
+  left: 42.05%;
+  top: 67.25%;
+  width: 7.25%;
   aspect-ratio: 1;
   border: 0;
   padding: 0;
@@ -257,33 +275,35 @@ textarea {
 
 .live-countdown {
   position: absolute;
-  left: 11.4%;
-  top: 91.5%;
-  width: 77.2%;
-  height: 5.8%;
+  inset: 0;
   z-index: 3;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2.1%;
-  align-items: start;
   pointer-events: none;
 }
 
 .live-countdown span {
+  position: absolute;
+  top: 93.42%;
+  width: 17.2%;
   display: grid;
-  place-items: start center;
+  place-items: center;
+  transform: translateX(-50%);
   min-width: 0;
-  padding-top: clamp(4px, 1.55vw, 13px);
 }
+
+.live-countdown span:nth-child(1) { left: 20.7%; }
+.live-countdown span:nth-child(2) { left: 39.6%; }
+.live-countdown span:nth-child(3) { left: 58.1%; }
+.live-countdown span:nth-child(4) { left: 76.7%; }
 
 .live-countdown b {
   color: var(--olive);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(17px, calc(var(--site-width) * .052), 40px);
+  font-size: clamp(17px, calc(var(--site-width) * .047), 36px);
   font-weight: 700;
   line-height: 1;
   letter-spacing: .02em;
-  text-shadow: 0 1px 0 rgba(255,255,255,.72), 0 8px 18px rgba(49, 42, 28, .08);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 rgba(255,255,255,.78), 0 8px 16px rgba(49, 42, 28, .08);
 }
 
 .scroll-top {
@@ -504,4 +524,22 @@ textarea {
 @keyframes floatHeart {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(-5deg); opacity: .14; }
   48% { transform: translate3d(0, -18px, 0) rotate(8deg); opacity: .52; }
+}
+
+
+/* Touch devices should not keep visible hover/active zones after a tap. */
+@media (hover: none), (pointer: coarse) {
+  .hotspot::after {
+    display: none;
+  }
+
+  .hotspot:focus,
+  .hotspot:active,
+  .hotspot:focus-visible,
+  .calendar-heart:focus,
+  .calendar-heart:active,
+  .calendar-heart:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
 }
