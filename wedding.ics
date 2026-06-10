@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MashaDanya//Wedding Invitation//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20260826-masha-danya-wedding@example.local
+DTSTAMP:20260610T000000Z
+DTSTART:20260826T130000Z
+DTEND:20260826T190000Z
+SUMMARY:Свадьба Маши и Дани
+DESCRIPTION:Сбор гостей у ЗАГСа в 16:00, регистрация в 16:30, банкет в 17:30.
+LOCATION:ул. Мыткова, 65, Дворец бракосочетания
+END:VEVENT
+END:VCALENDAR

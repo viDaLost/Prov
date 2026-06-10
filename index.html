@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#efe7d8" />
+  <meta name="description" content="Свадебное приглашение Маши и Дани — 26 августа 2026 года." />
+  <title>Маша + Даня — свадебное приглашение</title>
+  <link rel="preload" as="image" href="assets/invitation-background.webp" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-live="polite">
+    <div class="preloader__heart">♥</div>
+    <div class="preloader__text">Открываем приглашение…</div>
+  </div>
+
+  <main class="site" id="top">
+    <section class="invite-card" aria-label="Свадебное приглашение Маши и Дани">
+      <picture>
+        <source srcset="assets/invitation-background.webp" type="image/webp" />
+        <img
+          class="invite-card__image"
+          src="assets/invitation-background.jpg"
+          alt="Свадебное приглашение: Маша плюс Даня, 26 августа 2026 года, локация, тайминг, пожелания, дресс-код, воспоминания и анкета."
+          width="380"
+          height="5798"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="ambient ambient--left" aria-hidden="true"></div>
+      <div class="ambient ambient--right" aria-hidden="true"></div>
+      <div class="floating-hearts" aria-hidden="true">
+        <span style="--x:8%;--delay:.2s;--size:15px">♥</span>
+        <span style="--x:87%;--delay:1.1s;--size:19px">♡</span>
+        <span style="--x:18%;--delay:2.7s;--size:13px">♡</span>
+        <span style="--x:71%;--delay:3.6s;--size:16px">♥</span>
+        <span style="--x:52%;--delay:4.5s;--size:12px">♥</span>
+      </div>
+
+      <a class="hotspot hotspot--route hotspot--registration" data-route="registration" href="#" target="_blank" rel="noopener" aria-label="Построить маршрут до места регистрации">
+        <span>Маршрут</span>
+      </a>
+
+      <a class="hotspot hotspot--route hotspot--banquet" data-route="banquet" href="#" target="_blank" rel="noopener" aria-label="Построить маршрут до банкетного зала">
+        <span>Маршрут</span>
+      </a>
+
+      <button class="hotspot hotspot--memories" type="button" data-open-modal="memories" aria-label="Открыть раздел воспоминаний">
+        <span>Воспоминания</span>
+      </button>
+
+      <button class="hotspot hotspot--rsvp" type="button" data-open-modal="rsvp" aria-label="Заполнить свадебную анкету">
+        <span>Заполнить анкету</span>
+      </button>
+
+      <button class="calendar-chip" type="button" id="calendarButton" aria-label="Добавить событие в календарь">
+        <span>♡</span> В календарь
+      </button>
+
+      <div class="countdown" id="countdown" aria-label="Обратный отсчёт до свадьбы">
+        <div><strong data-unit="days">00</strong><span>дней</span></div>
+        <div><strong data-unit="hours">00</strong><span>часов</span></div>
+        <div><strong data-unit="minutes">00</strong><span>минут</span></div>
+        <div><strong data-unit="seconds">00</strong><span>секунд</span></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="rsvpModal">
+    <form class="modal__panel" id="rsvpForm" method="dialog">
+      <button class="modal__close" value="close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <p class="modal__eyebrow">Анкета гостя</p>
+      <h2>Подтвердите присутствие</h2>
+      <p class="modal__lead">Заполните форму — ответ сохранится на устройстве. При необходимости его можно сразу скопировать или отправить.</p>
+
+      <label>
+        Ваше имя
+        <input name="name" autocomplete="name" required placeholder="Например, Анна" />
+      </label>
+
+      <label>
+        Вы сможете прийти?
+        <select name="attendance" required>
+          <option value="Да, буду">Да, буду</option>
+          <option value="Буду с гостем">Буду с гостем</option>
+          <option value="Пока не знаю">Пока не знаю</option>
+          <option value="К сожалению, не смогу">К сожалению, не смогу</option>
+        </select>
+      </label>
+
+      <div class="field-grid">
+        <label>
+          Взрослых
+          <input name="adults" type="number" min="0" max="10" value="1" inputmode="numeric" />
+        </label>
+        <label>
+          Детей
+          <input name="children" type="number" min="0" max="10" value="0" inputmode="numeric" />
+        </label>
+      </div>
+
+      <label>
+        Комментарий или пожелание
+        <textarea name="comment" rows="4" placeholder="Аллергии, особенности меню, тёплые слова…"></textarea>
+      </label>
+
+      <div class="modal__actions">
+        <button class="button button--primary" type="submit">Сохранить ответ</button>
+        <button class="button button--ghost" type="button" id="copyRsvp">Скопировать</button>
+      </div>
+      <p class="modal__status" id="rsvpStatus" role="status"></p>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="memoriesModal">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <p class="modal__eyebrow">Воспоминания</p>
+      <h2>Поделитесь фото и видео</h2>
+      <p class="modal__lead">На телефоне можно выбрать файлы и отправить их через системное меню «Поделиться». Если в <code>config.js</code> добавить ссылку на Telegram-группу, кнопка откроет её напрямую.</p>
+
+      <label class="file-drop" for="memoryFiles">
+        <input id="memoryFiles" type="file" multiple accept="image/*,video/*" />
+        <span>Выбрать фото или видео</span>
+        <small>Можно выбрать сразу несколько файлов</small>
+      </label>
+
+      <div class="file-preview" id="filePreview" aria-live="polite"></div>
+
+      <div class="modal__actions">
+        <button class="button button--primary" type="button" id="shareFiles">Поделиться файлами</button>
+        <a class="button button--ghost" id="memoriesLink" href="#" target="_blank" rel="noopener">Открыть группу</a>
+      </div>
+      <p class="modal__status" id="memoriesStatus" role="status"></p>
+    </div>
+  </dialog>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Наверх">↑</button>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
