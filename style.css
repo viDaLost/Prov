@@ -544,111 +544,340 @@ a:focus {
   }
 }
 
-
-/* --- Integrated decorative assets --- */
-.hotspot,
-.calendar-heart {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  filter: drop-shadow(0 10px 18px rgba(78, 47, 24, .16));
-  transition: transform .24s ease, filter .24s ease, opacity .24s ease;
-  z-index: 5;
+/* === Integrated custom UI assets === */
+:root {
+  --ui-route: url('assets/ui/btn-route.png');
+  --ui-chat: url('assets/ui/btn-chat.png');
+  --ui-form: url('assets/ui/btn-form.png');
+  --ui-heart: url('assets/ui/heart-pulse.png');
 }
 
-.hotspot:hover,
-.hotspot:focus-visible,
-.hotspot:active,
-.calendar-heart:hover,
-.calendar-heart:focus-visible,
-.calendar-heart:active {
-  transform: translateY(-1px) scale(1.03);
-  filter: drop-shadow(0 16px 26px rgba(78, 47, 24, .24));
+.hotspot--memory,
+.hotspot--form {
+  overflow: hidden;
+  isolation: isolate;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0 12px 30px rgba(67, 40, 23, .16);
+  transition: transform .22s ease, filter .22s ease, box-shadow .22s ease;
+}
+
+.hotspot--memory { background-image: var(--ui-chat); }
+.hotspot--form { background-image: var(--ui-form); }
+
+.hotspot--memory::after,
+.hotspot--form::after {
+  content: "";
+  position: absolute;
+  inset: 10% 6%;
+  border-radius: 999px;
+  background: linear-gradient(110deg, transparent 10%, rgba(255,255,255,.26) 40%, rgba(255,255,255,.06) 66%, transparent 90%);
+  opacity: .55;
+  transform: translateX(-32%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.hotspot--memory:hover,
+.hotspot--memory:focus-visible,
+.hotspot--form:hover,
+.hotspot--form:focus-visible {
+  transform: translateY(-1px) scale(1.012);
+  box-shadow: 0 16px 36px rgba(67, 40, 23, .22);
+}
+
+.hotspot--memory:hover::after,
+.hotspot--memory:focus-visible::after,
+.hotspot--form:hover::after,
+.hotspot--form:focus-visible::after {
+  opacity: .8;
+  transform: translateX(32%);
+}
+
+.hotspot--memory:active,
+.hotspot--form:active {
+  transform: translateY(1px) scale(.994);
+  box-shadow: 0 8px 22px rgba(67, 40, 23, .18);
 }
 
 .hotspot--map {
-  background-image: url("assets/btn-route.png");
+  overflow: visible;
+}
+
+.hotspot--map::before,
+.hotspot--map::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  display: block;
+}
+
+.hotspot--map::before {
+  left: 11.2%;
+  right: 11.2%;
+  bottom: 10.4%;
+  height: 23.5%;
   border-radius: 999px;
+  background: center / 100% 100% no-repeat var(--ui-route);
+  box-shadow: 0 10px 24px rgba(76, 48, 29, .18);
+  transition: transform .22s ease, filter .22s ease, box-shadow .22s ease;
 }
 
-.hotspot--registration {
-  left: 15.6%;
-  top: 90.9%;
-  width: 25.7%;
-  height: 2.85%;
-}
-
-.hotspot--banquet {
-  left: 56.8%;
-  top: 90.9%;
-  width: 25.7%;
-  height: 2.85%;
-}
-
-.hotspot--memory {
-  left: 25.7%;
-  top: 53.95%;
-  width: 48.6%;
-  height: 3.85%;
+.hotspot--map::after {
+  left: 15%;
+  right: 15%;
+  bottom: 13.4%;
+  height: 15%;
   border-radius: 999px;
-  background-image: url("assets/btn-chat.png");
+  background: linear-gradient(110deg, transparent 8%, rgba(255,255,255,.24) 38%, rgba(255,255,255,.08) 64%, transparent 92%);
+  opacity: .55;
+  transform: translateX(-30%);
+  mix-blend-mode: screen;
+  transition: transform .22s ease, opacity .22s ease;
 }
 
-.hotspot--form {
-  left: 21.1%;
-  top: 70.18%;
-  width: 58.0%;
-  height: 4.65%;
-  border-radius: 999px;
-  background-image: url("assets/btn-form.png");
+.hotspot--map:hover::before,
+.hotspot--map:focus-visible::before {
+  transform: translateY(-1px) scale(1.018);
+  box-shadow: 0 14px 30px rgba(76, 48, 29, .22);
+}
+
+.hotspot--map:hover::after,
+.hotspot--map:focus-visible::after {
+  opacity: .84;
+  transform: translateX(30%);
+}
+
+.hotspot--map:active::before {
+  transform: translateY(1px) scale(.996);
+  box-shadow: 0 8px 18px rgba(76, 48, 29, .2);
 }
 
 .calendar-heart {
-  left: 39.15%;
-  top: 67.15%;
-  width: 12.1%;
-  aspect-ratio: 1015 / 811;
-  background-image: url("assets/heart-pulse.png");
-  animation: heartFloat 2.4s ease-in-out infinite;
-  filter: drop-shadow(0 10px 16px rgba(125, 32, 27, .24));
+  left: 42.08%;
+  top: 67.18%;
+  width: 7.8%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  filter: none;
 }
 
-.calendar-heart svg,
-.calendar-heart__spark {
+.calendar-heart svg {
   display: none;
 }
 
-.live-countdown { z-index: 6; }
+.calendar-heart::before {
+  content: "";
+  position: absolute;
+  inset: -4%;
+  background: center / contain no-repeat var(--ui-heart);
+  clip-path: polygon(50% 98%, 10% 60%, 1% 35%, 11% 14%, 31% 5%, 50% 21%, 69% 5%, 89% 14%, 99% 35%, 90% 60%);
+  filter: drop-shadow(0 9px 12px rgba(85, 27, 22, .24));
+  animation: calendarAssetBeat 1.65s ease-in-out infinite;
+}
 
-@keyframes heartFloat {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.08); }
+.calendar-heart__spark {
+  z-index: 2;
+  color: rgba(166, 31, 29, .88);
+  text-shadow: 0 0 10px rgba(255, 238, 220, .8);
+}
+
+@keyframes calendarAssetBeat {
+  0%, 100% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  58% { transform: scale(1.04); }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .hotspot:hover,
-  .hotspot:focus-visible,
-  .hotspot:active,
-  .calendar-heart:hover,
-  .calendar-heart:focus-visible,
-  .calendar-heart:active {
-    transform: none;
-    filter: drop-shadow(0 10px 18px rgba(78, 47, 24, .16));
+  .hotspot--memory,
+  .hotspot--form,
+  .hotspot--map::before {
+    box-shadow: 0 10px 24px rgba(67, 40, 23, .18);
+  }
+
+  .hotspot--memory::after,
+  .hotspot--form::after,
+  .hotspot--map::after {
+    opacity: .45;
   }
 }
 
-.calendar-heart:hover,
-.calendar-heart:focus-visible,
+/* === Final precise fit tuning for integrated custom assets === */
+:root {
+  --ui-route-clean: url('assets/ui/btn-route-clean.png');
+  --ui-chat-clean: url('assets/ui/btn-chat-clean.png');
+  --ui-form-clean: url('assets/ui/btn-form-clean.png');
+  --ui-heart-clean: url('assets/ui/heart-pulse-clean.png');
+}
+
+/* Memory / form buttons: exact size over original artwork */
+.hotspot--memory,
+.hotspot--form,
+.hotspot--map {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 0;
+  outline: none !important;
+}
+
+.hotspot--memory::before,
+.hotspot--memory::after,
+.hotspot--form::before,
+.hotspot--form::after,
+.hotspot--map::before,
+.hotspot--map::after {
+  display: none !important;
+  content: none !important;
+}
+
+.hotspot--memory {
+  left: 20.1%;
+  top: 53.55%;
+  width: 59.8%;
+  height: auto;
+  aspect-ratio: 1959 / 450;
+  border-radius: 999px;
+  background-image: var(--ui-chat-clean);
+  box-shadow: 0 12px 26px rgba(66, 43, 27, .18);
+}
+
+.hotspot--form {
+  left: 20.3%;
+  top: 70.22%;
+  width: 59.2%;
+  height: auto;
+  aspect-ratio: 2003 / 503;
+  border-radius: 999px;
+  background-image: var(--ui-form-clean);
+  box-shadow: 0 12px 28px rgba(88, 37, 27, .18);
+}
+
+/* Route buttons: use the custom artwork directly, exactly over the old small route buttons */
+.hotspot--registration,
+.hotspot--banquet {
+  top: 89.55%;
+  width: 25.9%;
+  height: auto;
+  aspect-ratio: 1788 / 388;
+  border-radius: 999px;
+  background-image: var(--ui-route-clean);
+  box-shadow: 0 10px 22px rgba(84, 56, 32, .2);
+}
+
+.hotspot--registration { left: 14.4%; }
+.hotspot--banquet { left: 58.0%; }
+
+.calendar-heart {
+  left: 42.18%;
+  top: 67.18%;
+  width: 8.35%;
+  height: auto;
+  aspect-ratio: 1014 / 810;
+  background: center / contain no-repeat var(--ui-heart-clean);
+  filter: drop-shadow(0 10px 14px rgba(98, 34, 27, .18));
+  animation: calendarAssetBeat 1.55s ease-in-out infinite;
+}
+
+.calendar-heart::before,
+.calendar-heart::after,
+.calendar-heart svg,
+.calendar-heart__spark {
+  display: none !important;
+}
+
+/* A little premium depth */
+.hotspot--memory,
+.hotspot--form,
+.hotspot--registration,
+.hotspot--banquet,
+.calendar-heart {
+  transform-origin: center;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.hotspot--memory:hover,
+.hotspot--form:hover,
+.hotspot--registration:hover,
+.hotspot--banquet:hover,
+.hotspot--memory:focus-visible,
+.hotspot--form:focus-visible,
+.hotspot--registration:focus-visible,
+.hotspot--banquet:focus-visible {
+  transform: translateY(-1px) scale(1.015);
+}
+
+.hotspot--memory:active,
+.hotspot--form:active,
+.hotspot--registration:active,
+.hotspot--banquet:active,
 .calendar-heart:active {
-  transform: translate(-50%, -50%) scale(1.06);
-  filter: drop-shadow(0 16px 24px rgba(125, 32, 27, .28));
+  transform: translateY(1px) scale(.992);
 }
 
-@media (hover: none), (pointer: coarse) {
-  .calendar-heart:hover,
-  .calendar-heart:focus-visible,
-  .calendar-heart:active {
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0 10px 16px rgba(125, 32, 27, .24));
-  }
+@media (max-width: 480px) {
+  .hotspot--memory { top: 53.58%; width: 60.2%; left: 19.9%; }
+  .hotspot--form { top: 70.27%; width: 59.7%; left: 20.05%; }
+  .hotspot--registration,
+  .hotspot--banquet { top: 89.64%; width: 26.3%; }
+  .hotspot--registration { left: 14.15%; }
+  .hotspot--banquet { left: 57.78%; }
+  .calendar-heart { left: 42.2%; top: 67.2%; width: 8.55%; }
 }
+
+/* Keep the calendar heart centered while animating */
+.calendar-heart {
+  transform: translate(-50%, -50%);
+  animation: calendarAssetBeatFixed 1.55s ease-in-out infinite;
+}
+.calendar-heart:hover,
+.calendar-heart:focus-visible {
+  transform: translate(-50%, -50%) scale(1.03);
+}
+.calendar-heart:active {
+  transform: translate(-50%, -50%) translateY(1px) scale(.992);
+}
+
+@keyframes calendarAssetBeatFixed {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  42% { transform: translate(-50%, -50%) scale(1.12); }
+  58% { transform: translate(-50%, -50%) scale(1.04); }
+}
+
+/* Use tightly cropped original button artwork for the cleanest integration */
+.hotspot--memory,
+.hotspot--form,
+.hotspot--registration,
+.hotspot--banquet {
+  background-size: 100% 100%;
+}
+.hotspot--memory { background-image: url('assets/ui/btn-chat-crop.png'); }
+.hotspot--form { background-image: url('assets/ui/btn-form-crop.png'); }
+.hotspot--registration,
+.hotspot--banquet { background-image: url('assets/ui/btn-route-crop.png'); }
+
+/* Final micro-adjustments after visual fit check */
+.hotspot--memory {
+  left: 20.05%;
+  top: 53.55%;
+  width: 59.75%;
+  aspect-ratio: 1980 / 470;
+}
+
+.hotspot--form {
+  left: 20.3%;
+  top: 70.24%;
+  width: 59.25%;
+  aspect-ratio: 2020 / 540;
+}
+
+.hotspot--registration,
+.hotspot--banquet {
+  top: 89.70%;
+  width: 27.75%;
+  aspect-ratio: 1820 / 430;
+}
+.hotspot--registration { left: 14.06%; }
+.hotspot--banquet { left: 57.42%; }
