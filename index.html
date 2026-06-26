@@ -1,110 +1,297 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f3eadc" />
-  <meta name="color-scheme" content="light" />
-  <title>Маша + Даня — свадебное приглашение</title>
-  <meta name="description" content="Свадебное приглашение Маши и Дани — 26 августа 2026 года." />
-  <link rel="preload" as="image" href="assets/section-1@2x.webp" imagesrcset="assets/section-1.webp 1x, assets/section-1@2x.webp 2x" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="paper-noise" aria-hidden="true"></div>
-  <div id="preloader" class="preloader" aria-live="polite">
-    <div class="preloader__card">
-      <span class="preloader__heart">♥</span>
-      <span>Открываем приглашение…</span>
-    </div>
-  </div>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080B12" />
+    <meta name="description" content="Премиальный сайт-визитка программиста: архитектура, интерфейсы, веб-приложения и автоматизация." />
+    <title>Артём Северов — Software Architect</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">К содержанию</a>
+    <div class="progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
 
-  <main class="site-shell" aria-label="Свадебное приглашение Маши и Дани">
-    <section class="art-section art-section--first" aria-label="Дата, календарь и локация">
-      <picture>
-        <source srcset="assets/section-1.webp 1x, assets/section-1@2x.webp 2x" type="image/webp" />
-        <img src="assets/section-1.png" alt="Маша + Даня = любовь. Дата свадьбы, календарь и локация." width="768" height="2048" fetchpriority="high" decoding="async" />
-      </picture>
+    <header class="site-header" data-elevated="false">
+      <nav class="nav-shell" aria-label="Главная навигация">
+        <a class="brand" href="#top" aria-label="На главную">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" role="img">
+              <path d="M18 2.8 31.2 10.3v15.4L18 33.2 4.8 25.7V10.3L18 2.8Zm0 5.7-8.2 4.7v9.6l8.2 4.7 8.2-4.7v-9.6L18 8.5Zm0 4.2 4.6 2.7v5.2L18 23.3l-4.6-2.7v-5.2L18 12.7Z" />
+            </svg>
+          </span>
+          <span>
+            <strong>Severov.dev</strong>
+            <small>code · product · motion</small>
+          </span>
+        </a>
 
-      <button id="calendarHeart" class="calendar-heart" type="button" aria-label="Добавить свадьбу в календарь">
-        <svg viewBox="0 0 100 92" aria-hidden="true" focusable="false">
-          <path d="M50 84S8 58 8 30C8 15 18 6 31 6c8 0 15 5 19 12C54 11 61 6 69 6c13 0 23 9 23 24 0 28-42 54-42 54Z" />
-          <text x="50" y="55" text-anchor="middle">26</text>
-        </svg>
-        <span class="calendar-heart__spark calendar-heart__spark--one">✦</span>
-        <span class="calendar-heart__spark calendar-heart__spark--two">♥</span>
-        <span class="calendar-heart__spark calendar-heart__spark--three">✦</span>
-      </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Открыть меню</span>
+        </button>
 
-      <a class="hotspot hotspot--map hotspot--registration" data-action="registration-map" href="#" aria-label="Построить маршрут до ЗАГСа"></a>
-      <a class="hotspot hotspot--map hotspot--banquet" data-action="banquet-map" href="#" aria-label="Построить маршрут до банкета"></a>
-    </section>
+        <div class="nav-links" id="navLinks">
+          <a href="#work">Работы</a>
+          <a href="#stack">Стек</a>
+          <a href="#process">Процесс</a>
+          <a href="#contact">Контакты</a>
+        </div>
 
-    <section class="art-section" aria-label="Тайминг и пожелания">
-      <picture>
-        <source srcset="assets/section-2.webp 1x, assets/section-2@2x.webp 2x" type="image/webp" />
-        <img src="assets/section-2.png" alt="Тайминг свадебного дня и пожелания гостям." width="768" height="2048" loading="lazy" decoding="async" />
-      </picture>
-    </section>
+        <div class="nav-actions">
+          <button class="ghost-action command-open" type="button" aria-label="Открыть командную панель">
+            <kbd>⌘K</kbd>
+          </button>
+          <button class="theme-toggle" type="button" aria-label="Переключить тему">
+            <span class="theme-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
 
-    <section class="art-section art-section--last" aria-label="Дресс-код, воспоминания, анкета и обратный отсчёт">
-      <picture>
-        <source srcset="assets/section-3.webp 1x, assets/section-3@2x.webp 2x" type="image/webp" />
-        <img src="assets/section-3.png" alt="Дресс-код, воспоминания, анкета и обратный отсчёт до свадьбы." width="768" height="2048" loading="lazy" decoding="async" />
-      </picture>
+    <main id="main">
+      <section class="hero section" id="top" aria-labelledby="heroTitle">
+        <div class="container hero-grid">
+          <div class="hero-copy flow reveal">
+            <p class="eyebrow"><span></span> Доступен для 2 проектов в июле</p>
+            <h1 id="heroTitle">Программист, который превращает хаос идеи в быстрый, красивый и поддерживаемый продукт.</h1>
+            <p class="hero-lead">Я проектирую веб-приложения, Telegram Mini Apps, интерфейсы и автоматизации так, чтобы их было приятно использовать сегодня и безопасно развивать через полгода.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#contact">
+                Обсудить проект
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11.2 4.4 16.8 10l-5.6 5.6-1.1-1.1 3.7-3.7H3.2V9.2h10.6l-3.7-3.7 1.1-1.1Z" /></svg>
+              </a>
+              <button class="button secondary command-open" type="button">Посмотреть навигацию</button>
+            </div>
+            <div class="signal-row" aria-label="Ключевые показатели">
+              <div><strong>42+</strong><span>запущенных интерфейса</span></div>
+              <div><strong>96</strong><span>Lighthouse-подход как стандарт</span></div>
+              <div><strong>0</strong><span>лишних зависимостей в этой сборке</span></div>
+            </div>
+          </div>
 
-      <button class="hotspot hotspot--memory" data-action="memories" type="button" aria-label="Открыть чат воспоминаний"></button>
-      <button class="hotspot hotspot--form" data-action="form" type="button" aria-label="Заполнить анкету"></button>
+          <aside class="hero-panel reveal delay-1" aria-label="Профиль программиста">
+            <div class="profile-card surface magnetic">
+              <div class="profile-top">
+                <div class="avatar" aria-hidden="true">
+                  <span>{ }</span>
+                </div>
+                <div>
+                  <p class="muted">Software Architect</p>
+                  <h2>Артём Северов</h2>
+                </div>
+              </div>
+              <div class="availability">
+                <span class="pulse" aria-hidden="true"></span>
+                <span>Отвечаю в течение рабочего дня</span>
+              </div>
+              <div class="terminal" aria-label="Терминал компетенций">
+                <div class="terminal-bar"><span></span><span></span><span></span></div>
+                <pre><code><span class="dim">$</span> build --idea "MVP"
+<span class="ok">✓</span> architecture mapped
+<span class="ok">✓</span> interface polished
+<span class="ok">✓</span> deploy ready</code></pre>
+              </div>
+              <div class="tag-cloud" aria-label="Специализации">
+                <span>React</span><span>TypeScript</span><span>Telegram</span><span>Node.js</span><span>UI Systems</span><span>Automation</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-      <div class="live-countdown" aria-label="Обратный отсчёт до свадьбы">
-        <span><b data-count="days">--</b></span>
-        <span><b data-count="hours">--</b></span>
-        <span><b data-count="minutes">--</b></span>
-        <span><b data-count="seconds">--</b></span>
+      <section class="section compact" aria-labelledby="trustTitle">
+        <div class="container">
+          <div class="section-kicker reveal" id="trustTitle">Что получает клиент</div>
+          <div class="trust-grid">
+            <article class="trust-card surface reveal magnetic">
+              <span class="icon-pill">01</span>
+              <h3>Архитектура до кода</h3>
+              <p>Сначала модель данных, сценарии, риски и ограничения. Потом — интерфейс и реализация.</p>
+            </article>
+            <article class="trust-card surface reveal magnetic delay-1">
+              <span class="icon-pill">02</span>
+              <h3>Интерфейс с ощущением качества</h3>
+              <p>Точные радиусы, мягкие тени, читаемая типографика, микроанимации и отсутствие визуального шума.</p>
+            </article>
+            <article class="trust-card surface reveal magnetic delay-2">
+              <span class="icon-pill">03</span>
+              <h3>Код без хрупкости</h3>
+              <p>Компонентный подход, понятные токены, минимальная связанность и пространство для масштабирования.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="workTitle">
+        <div class="container split-heading reveal">
+          <div>
+            <p class="eyebrow"><span></span> Избранные кейсы</p>
+            <h2 id="workTitle">Проекты, где важны скорость, UX и инженерная дисциплина.</h2>
+          </div>
+          <p>Ниже — демонстрационные карточки. Замените тексты на реальные проекты программиста, сохранив структуру.</p>
+        </div>
+
+        <div class="container work-grid">
+          <article class="project-card surface reveal magnetic" data-type="web">
+            <div class="project-visual visual-a" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Web App</span><span>8 недель</span></div>
+              <h3>Платформа бронирования услуг</h3>
+              <p>Личный кабинет, календарь, платежная логика и административная панель с быстрыми сценариями управления.</p>
+              <ul>
+                <li>−38% ручной работы администратора</li>
+                <li>SSR-ready структура и чистые API-контракты</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card surface reveal magnetic delay-1" data-type="telegram">
+            <div class="project-visual visual-b" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Telegram Mini App</span><span>4 недели</span></div>
+              <h3>Мини-приложение для обучения</h3>
+              <p>Игровой интерфейс, прогресс, роли, админка и интеграция с таблицами без тяжёлой инфраструктуры.</p>
+              <ul>
+                <li>Mobile-first UX для детей и взрослых</li>
+                <li>Локальный кэш и устойчивые состояния</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card surface reveal magnetic delay-2" data-type="automation">
+            <div class="project-visual visual-c" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Automation</span><span>2 недели</span></div>
+              <h3>Бот-оператор процессов</h3>
+              <p>Уведомления, отчёты, обработка заявок и защита от повторных событий в одном надёжном сценарии.</p>
+              <ul>
+                <li>Очереди, ретраи и контроль ошибок</li>
+                <li>Понятные статусы для пользователя</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="stack" aria-labelledby="stackTitle">
+        <div class="container stack-layout">
+          <div class="stack-copy reveal">
+            <p class="eyebrow"><span></span> Инженерный стек</p>
+            <h2 id="stackTitle">Технологии выбираются под задачу, а не под моду.</h2>
+            <p>Сайт собран как статический продукт: без фреймворка, без CDN и без лишнего JavaScript. Для реального проекта эту основу можно перенести в React, Next.js, Astro или оставить максимально быстрой vanilla-сборкой.</p>
+          </div>
+          <div class="stack-matrix reveal delay-1" aria-label="Стек технологий">
+            <div class="stack-item"><strong>Frontend</strong><span>React · TypeScript · CSS Architecture</span></div>
+            <div class="stack-item"><strong>Backend</strong><span>Node.js · APIs · Workers · Apps Script</span></div>
+            <div class="stack-item"><strong>Design</strong><span>Tokens · Components · Motion · A11y</span></div>
+            <div class="stack-item"><strong>Delivery</strong><span>GitHub Pages · VPS · CI/CD · Monitoring</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process" aria-labelledby="processTitle">
+        <div class="container split-heading reveal">
+          <div>
+            <p class="eyebrow"><span></span> Метод работы</p>
+            <h2 id="processTitle">Процесс короткий, но не поверхностный.</h2>
+          </div>
+          <p>Каждый этап заканчивается понятным артефактом: схема, прототип, код, тест, релиз.</p>
+        </div>
+
+        <div class="container timeline">
+          <article class="timeline-step reveal">
+            <span>1</span>
+            <h3>Диагностика</h3>
+            <p>Разбираю цель, пользователя, ограничения, риски и то, что действительно должно заработать первым.</p>
+          </article>
+          <article class="timeline-step reveal delay-1">
+            <span>2</span>
+            <h3>Прототип</h3>
+            <p>Собираю структуру экранов, состояния, UX-микротексты и сценарии ошибок до основной разработки.</p>
+          </article>
+          <article class="timeline-step reveal delay-2">
+            <span>3</span>
+            <h3>Разработка</h3>
+            <p>Пишу чистую компонентную реализацию с дизайн-токенами, адаптивом и понятными точками расширения.</p>
+          </article>
+          <article class="timeline-step reveal delay-3">
+            <span>4</span>
+            <h3>Полировка</h3>
+            <p>Проверяю скорость, контраст, состояния, анимации, пустые экраны, тексты и поведение на мобильных.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contactTitle">
+        <div class="container contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow"><span></span> Контакты</p>
+            <h2 id="contactTitle">Есть идея, которую нужно превратить в продукт?</h2>
+            <p>Напишите коротко: что нужно сделать, для кого, в какие сроки и какие материалы уже есть. Я предложу структуру решения и следующий практичный шаг.</p>
+            <div class="contact-actions">
+              <a class="button primary" href="mailto:hello@severov.dev?subject=Проект%20для%20обсуждения">hello@severov.dev</a>
+              <button class="button secondary" id="copyEmail" type="button">Скопировать email</button>
+              <button class="button tertiary" id="downloadVcard" type="button">Скачать vCard</button>
+            </div>
+          </div>
+
+          <form class="contact-form surface reveal delay-1" id="contactForm">
+            <label>
+              <span>Имя</span>
+              <input name="name" autocomplete="name" placeholder="Как к вам обращаться" required />
+            </label>
+            <label>
+              <span>Контакт</span>
+              <input name="contact" autocomplete="email" placeholder="Telegram или email" required />
+            </label>
+            <label>
+              <span>Задача</span>
+              <textarea name="message" rows="5" placeholder="Например: нужен сайт, бот, Mini App или автоматизация" required></textarea>
+            </label>
+            <button class="button primary full" type="submit">Собрать письмо</button>
+            <p class="form-note" id="formNote">Форма не отправляет данные на сервер — она открывает готовое письмо в вашем почтовом приложении.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <p>© <span id="year"></span> Severov.dev. Статический сайт-визитка для программиста.</p>
+        <div>
+          <a href="#top">Наверх</a>
+          <button class="link-button command-open" type="button">Командная панель</button>
+        </div>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <button id="scrollTop" class="scroll-top" type="button" aria-label="Наверх">↑</button>
+    <dialog class="command-dialog" id="commandDialog" aria-labelledby="commandTitle">
+      <div class="command-shell surface">
+        <div class="command-head">
+          <div>
+            <h2 id="commandTitle">Быстрая навигация</h2>
+            <p>Введите раздел или действие</p>
+          </div>
+          <button class="icon-button" type="button" id="closeCommand" aria-label="Закрыть">×</button>
+        </div>
+        <input id="commandInput" type="search" placeholder="Например: стек, контакты, проект" autocomplete="off" />
+        <div class="command-list" id="commandList" role="listbox" aria-label="Команды"></div>
+      </div>
+    </dialog>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <dialog id="memoryDialog" class="modal">
-    <form method="dialog" class="modal__card">
-      <button class="modal__close" value="close" aria-label="Закрыть">×</button>
-      <h2>Воспоминания</h2>
-      <p>Ссылка на Telegram-группу пока не указана. Добавьте её в <code>config.js</code> в поле <b>memoriesUrl</b>, и кнопка начнёт открывать чат.</p>
-      <button class="modal__button" value="close">Понятно</button>
-    </form>
-  </dialog>
-
-  <dialog id="rsvpDialog" class="modal">
-    <form id="rsvpForm" class="modal__card modal__card--form">
-      <button class="modal__close" type="button" data-close="rsvp" aria-label="Закрыть">×</button>
-      <h2>Анкета гостя</h2>
-      <label>
-        <span>Ваше имя</span>
-        <input name="name" autocomplete="name" required placeholder="Например, Анна" />
-      </label>
-      <label>
-        <span>Вы сможете прийти?</span>
-        <select name="attendance" required>
-          <option value="Да, буду">Да, буду</option>
-          <option value="Буду с гостем">Буду с гостем</option>
-          <option value="Пока не уверен(а)">Пока не уверен(а)</option>
-          <option value="Не смогу">Не смогу</option>
-        </select>
-      </label>
-      <label>
-        <span>Комментарий</span>
-        <textarea name="comment" rows="3" placeholder="Пожелания, питание, важные детали"></textarea>
-      </label>
-      <button class="modal__button" type="submit">Сохранить ответ</button>
-      <p class="modal__hint">Ответ сохранится на устройстве. Для сбора ответов онлайн вставьте ссылку на вашу анкету в <code>config.js</code>.</p>
-    </form>
-  </dialog>
-
-  <script src="config.js"></script>
-  <script src="app.js"></script>
-</body>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
 </html>
